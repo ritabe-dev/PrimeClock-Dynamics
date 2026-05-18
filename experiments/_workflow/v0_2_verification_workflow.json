@@ -1,0 +1,70 @@
+{
+  "artifact_id": "primeclock_dynamics_v0_2_0_fixed_cutoff_foundation",
+  "artifact_status": "public_artifact",
+  "description": "Public verification workflow for the v0.2.0 fixed-cutoff foundation artifact.",
+  "gates": {
+    "quick": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "experiments/_workflow/build_v0_2_support.py",
+            "--out-dir",
+            "{tmp}/support_evidence"
+          ],
+          "expected_file": "{tmp}/support_evidence/support_manifest.json"
+        },
+        {
+          "command": [
+            "{python}",
+            "experiments/_workflow/check_v0_2_public_artifact.py",
+            "--support-dir",
+            "{tmp}/support_evidence"
+          ],
+          "expected_stdout": "check_v0_2_public_artifact: checks="
+        },
+        {
+          "command": [
+            "{python}",
+            "experiments/_workflow/check_fixed_cutoff_theorem_packet.py"
+          ],
+          "expected_stdout": "check_fixed_cutoff_theorem_packet: checks="
+        },
+        {
+          "command": [
+            "{python}",
+            "scripts/check_text_hygiene.py"
+          ],
+          "expected_stdout": "check_text_hygiene: checks="
+        },
+        {
+          "command": [
+            "{python}",
+            "-m",
+            "pytest",
+            "tests/test_twelve_oclock_equals_omega.py",
+            "tests/test_cutoff_multiplicity_moments.py",
+            "tests/test_uncovered_measure.py",
+            "-q"
+          ],
+          "expected_stdout": "passed"
+        }
+      ]
+    },
+    "bundle": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "scripts/build_v0_2_public_artifact.py",
+            "--out",
+            "{tmp}",
+            "--verify-extraction"
+          ],
+          "expected_file": "{tmp}/PrimeClock-Dynamics-v0.2.0.zip",
+          "expected_stdout": "v0_2_public_artifact: verified_extraction=1"
+        }
+      ]
+    }
+  }
+}

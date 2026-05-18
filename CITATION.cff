@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this PrimeClock Dynamics v0.2.0 fixed-cutoff foundation artifact, please cite it using the metadata below. This artifact is not a peer-reviewed result, not a preprint, not a DOI artifact, and not a Zenodo record."
+title: "PrimeClock Dynamics v0.2.0: Fixed-Cutoff Foundation Artifact"
+authors:
+  - family-names: "Itabe"
+    given-names: "Rio"
+version: "0.2.0"
+date-released: "2026-05-18"
+abstract: "A reproducible research artifact recording fixed-cutoff finite CRT identities for the Prime Clock Multiplicity Field and its fixed-cutoff uncovered-measure baseline."
+license: "MIT"
+repository-code: "https://github.com/ritabe-dev/PrimeClock-Dynamics"

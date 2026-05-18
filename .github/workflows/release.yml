@@ -1,0 +1,83 @@
+name: Publish PrimeClock Dynamics Artifact
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: github.ref == 'refs/tags/v0.2.0'
+    env:
+      ARTIFACT_VERSION: "0.2.0"
+      ARTIFACT_ZIP: "PrimeClock-Dynamics-v0.2.0.zip"
+      EXPECTED_SHA256: "ea7123a3c0e86c34a2e71e7dbd36f48043934ffe5f2e781b889900f2c7cf50e6"
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install -e ".[dev]"
+
+      - name: Run release verification
+        run: |
+          python scripts/check_public_source_surface.py
+          python experiments/_workflow/check_v0_2_public_artifact.py
+          python experiments/_workflow/check_fixed_cutoff_theorem_packet.py
+          python scripts/check_text_hygiene.py
+          python -m pytest -q
+          python -m ruff check src tests experiments scripts
+          python scripts/verify_candidate_workflow.py --config experiments/_workflow/v0_2_verification_workflow.json quick
+
+      - name: Build public artifact
+        run: |
+          python scripts/build_artifact.py --version "$ARTIFACT_VERSION" --out "$RUNNER_TEMP" --verify-extraction
+          unzip -t "$RUNNER_TEMP/$ARTIFACT_ZIP"
+          sha256sum "$RUNNER_TEMP/$ARTIFACT_ZIP"
+          grep -q "$EXPECTED_SHA256  $ARTIFACT_ZIP" "$RUNNER_TEMP/$ARTIFACT_ZIP.sha256"
+
+      - name: Check public artifact minimal surface
+        run: |
+          python scripts/check_public_source_surface.py --zip "$RUNNER_TEMP/$ARTIFACT_ZIP"
+
+      - name: Prepare release notes
+        run: |
+          cat > "$RUNNER_TEMP/release-body.md" <<'EOF'
+          # PrimeClock Dynamics v0.2.0 Fixed-Cutoff Foundation Artifact
+
+          This release publishes the v0.2.0 fixed-cutoff finite CRT artifact.
+
+          Assets:
+
+          - `PrimeClock-Dynamics-v0.2.0.zip`
+          - `PrimeClock-Dynamics-v0.2.0.zip.sha256`
+
+          SHA256:
+
+          ```text
+          ea7123a3c0e86c34a2e71e7dbd36f48043934ffe5f2e781b889900f2c7cf50e6  PrimeClock-Dynamics-v0.2.0.zip
+          ```
+
+          This artifact is not a preprint, not a peer-reviewed result, not a DOI artifact,
+          and not a Zenodo record. It covers v0.2.0 fixed-cutoff finite CRT statements only.
+          EOF
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            "$RUNNER_TEMP/$ARTIFACT_ZIP" \
+            "$RUNNER_TEMP/$ARTIFACT_ZIP.sha256" \
+            --title "PrimeClock Dynamics v0.2.0 Fixed-Cutoff Foundation Artifact" \
+            --notes-file "$RUNNER_TEMP/release-body.md"
