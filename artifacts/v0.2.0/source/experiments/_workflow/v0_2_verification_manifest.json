@@ -1,0 +1,65 @@
+{
+  "artifact_id": "primeclock_dynamics_v0_2_0_fixed_cutoff_foundation",
+  "artifact_status": "public_artifact",
+  "title": "PrimeClock Dynamics v0.2.0 Fixed-Cutoff Foundation Artifact",
+  "scope": "Reproducible fixed-cutoff finite CRT verification surface.",
+  "non_claims": [
+    "not a DOI artifact",
+    "not a Zenodo record",
+    "not a preprint",
+    "not a peer-reviewed result",
+    "not a diagonal model theorem",
+    "not an Erdos-Kac CLT",
+    "not a Mertens asymptotic law",
+    "not a Gaussian field result"
+  ],
+  "claim_ids": [
+    "PCD-FC-0",
+    "PCD-FC-1",
+    "PCD-FC-2",
+    "PCD-FC-3",
+    "PCD-MG-1",
+    "PCD-MG-2"
+  ],
+  "required_files": [
+    "docs/CLAIM_BOUNDARY.md",
+    "docs/MATH_SPEC.md",
+    "docs/APP_MODEL_DIFFERENCE.md",
+    "experiments/_workflow/check_v0_2_public_artifact.py",
+    "experiments/_workflow/build_v0_2_support.py",
+    "experiments/_workflow/check_fixed_cutoff_theorem_packet.py",
+    "paper/fixed_cutoff_foundation_v0_2_0.md",
+    "src/prime_clock_dynamics/multiplicity.py",
+    "src/prime_clock_dynamics/uncovered.py",
+    "tests/test_twelve_oclock_equals_omega.py",
+    "tests/test_cutoff_multiplicity_moments.py",
+    "tests/test_uncovered_measure.py"
+  ],
+  "support_outputs": [
+    "support_manifest.json",
+    "crt_average_support.csv",
+    "angular_moment_support.csv",
+    "theorem0_support.json",
+    "support_metadata.json"
+  ],
+  "verification_commands": [
+    "python3 experiments/_workflow/check_v0_2_public_artifact.py",
+    "python3 experiments/_workflow/check_fixed_cutoff_theorem_packet.py",
+    "python3 -m pytest tests/test_twelve_oclock_equals_omega.py tests/test_cutoff_multiplicity_moments.py tests/test_uncovered_measure.py -q"
+  ],
+  "artifact_exclusions": [
+    ".git",
+    ".local_notes",
+    ".pytest_cache",
+    ".ruff_cache",
+    "__pycache__",
+    "app",
+    "node_modules",
+    "app/dist",
+    "generated CSV data outside support_evidence",
+    "docs/ROADMAP.md",
+    "internal verification records",
+    "workflow review/status docs",
+    "future planning docs"
+  ]
+}

@@ -14,6 +14,7 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
+FROZEN_SOURCE_ROOT = ROOT / "artifacts/v0.2.0/source"
 TOP_LEVEL = "PrimeClock-Dynamics-v0.2.0"
 ZIP_NAME = f"{TOP_LEVEL}.zip"
 
@@ -70,7 +71,7 @@ INCLUDE_EXACT = (
 )
 
 def workflow_path(name: str) -> str:
-    """Build a non-public workflow path without exposing those names in this file."""
+    """Build an internal workflow path without exposing those names in the public ZIP text."""
     return f"experiments/_workflow/{name}"
 
 
@@ -81,20 +82,32 @@ EXCLUDED_MARKERS = {
     "paper/random_nonrandom_packet_v0_4.md",
     "paper/prime_clock_angular_sieve_note_v0_1.md",
     "docs/ROADMAP.md",
-    workflow_path("V0_2_" + "VERIFICATION_RECORD.md"),
+    workflow_path("V0_2_VERIFICATION_RECORD.md"),
     workflow_path("G" + "ATE_C_CANDIDATE_STATUS.md"),
-    workflow_path("G" + "ATE_P_RE" + "VIEW_PACKET.md"),
-    workflow_path("G" + "ATE_P_RE" + "VIEW_RE" + "QUEST_DRAFT.md"),
+    workflow_path("G" + "ATE_P_REVIEW_PACKET.md"),
+    workflow_path("G" + "ATE_P_REVIEW_REQUEST_DRAFT.md"),
     workflow_path("G" + "ATE_R_PROGRAM_STATUS.md"),
     workflow_path("G" + "ATE_R_REVIEW_PACKET.md"),
     workflow_path("PROPOSITION" + "_STATUS.md"),
-    workflow_path("PUBLIC" + "_WORDING_RE" + "VIEW.md"),
-    workflow_path("RE" + "VIEWER_README.md"),
-    workflow_path("RE" + "VIEW_RE" + "QUEST_DRAFT.md"),
+    workflow_path("PUBLIC_WORDING_REVIEW.md"),
+    workflow_path("REVIEWER_README.md"),
+    workflow_path("REVIEW_REQUEST_DRAFT.md"),
     "scripts/build_gate_p_review_zip.py",
+    "experiments/_workflow/build_fixed_cutoff_clt_support.py",
+    "experiments/_workflow/build_truncated_angular_clt_support.py",
+    "tests/test_fixed_cutoff_clt_support.py",
+    "tests/test_truncated_angular_clt_support.py",
 }
 
 ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
+FORBIDDEN_TEST_TOKENS = {
+    "build_fixed_cutoff_clt_support",
+    "build_truncated_angular_clt_support",
+    "V0_5_",
+    "V0_6_",
+    "pcd_v0_5_",
+    "pcd_v0_6_",
+}
 
 
 def sha256_file(path: Path) -> str:
@@ -130,23 +143,33 @@ def run_command(cwd: Path, command: list[str]) -> None:
         )
 
 
-def source_files() -> list[Path]:
-    """Return public artifact source files in stable order."""
-    files: list[Path] = []
+def source_root() -> Path:
+    """Return the frozen v0.2.0 source root."""
+    if not FROZEN_SOURCE_ROOT.is_dir():
+        raise SystemExit(
+            "frozen v0.2.0 source surface missing: artifacts/v0.2.0/source"
+        )
+    return FROZEN_SOURCE_ROOT
+
+
+def source_files() -> list[tuple[Path, Path]]:
+    """Return ``(archive_relative, source)`` pairs in stable order."""
+    base = source_root()
+    entries: list[tuple[Path, Path]] = []
     for relative in sorted(INCLUDE_EXACT):
-        path = ROOT / relative
+        path = base / relative
         if not path.is_file():
             raise SystemExit(f"required public artifact file missing: {relative}")
-        files.append(path)
-    for path in sorted((ROOT / "src/prime_clock_dynamics").glob("*.py")):
-        files.append(path)
-    return sorted(files, key=lambda item: item.relative_to(ROOT).as_posix())
+        entries.append((Path(relative), path))
+    for path in sorted((base / "src/prime_clock_dynamics").glob("*.py")):
+        entries.append((path.relative_to(base), path))
+    return sorted(entries, key=lambda item: item[0].as_posix())
 
 
 def build_support(support_dir: Path) -> list[Path]:
     """Build deterministic support evidence for the public artifact."""
     run_command(
-        ROOT,
+        source_root(),
         [
             sys.executable,
             "experiments/_workflow/build_v0_2_support.py",
@@ -165,6 +188,21 @@ def verify_no_excluded_members(zip_path: Path) -> None:
         needle = f"{TOP_LEVEL}/{marker}"
         if any(name == needle or name.startswith(needle + "/") for name in names):
             raise SystemExit(f"public artifact contains excluded path: {marker}")
+
+
+def verify_public_test_imports(zip_path: Path) -> None:
+    """Reject tests that depend on internal future-version workflow builders."""
+    with zipfile.ZipFile(zip_path) as archive:
+        for name in archive.namelist():
+            relative = name.removeprefix(f"{TOP_LEVEL}/")
+            if not relative.startswith("tests/") or not relative.endswith(".py"):
+                continue
+            text = archive.read(name).decode("utf-8")
+            for token in FORBIDDEN_TEST_TOKENS:
+                if token in text:
+                    raise SystemExit(
+                        f"public artifact test imports internal research token: {relative}: {token}"
+                    )
 
 
 def write_stable_file(archive: zipfile.ZipFile, source: Path, archive_name: Path) -> None:
@@ -213,8 +251,8 @@ def build_zip(out_dir: Path, *, verify: bool) -> tuple[Path, Path, int]:
         files = source_files()
 
         with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-            for path in files:
-                write_stable_file(archive, path, Path(TOP_LEVEL) / path.relative_to(ROOT))
+            for archive_relative, path in files:
+                write_stable_file(archive, path, Path(TOP_LEVEL) / archive_relative)
             for path in support_files:
                 write_stable_file(
                     archive,
@@ -223,6 +261,7 @@ def build_zip(out_dir: Path, *, verify: bool) -> tuple[Path, Path, int]:
                 )
 
     verify_no_excluded_members(zip_path)
+    verify_public_test_imports(zip_path)
     digest = sha256_file(zip_path)
     sha_path.write_text(f"{digest}  {zip_path.name}\n", encoding="utf-8")
 

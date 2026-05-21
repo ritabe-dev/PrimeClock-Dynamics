@@ -12,9 +12,10 @@ import argparse
 from pathlib import Path
 
 from build_v0_2_public_artifact import build_zip as build_v0_2_zip
+from build_v1_0_public_artifact import build_zip as build_v1_0_zip
 
 
-SUPPORTED_VERSIONS = {"0.2.0"}
+SUPPORTED_VERSIONS = {"0.2.0", "1.0.0"}
 
 
 def main() -> None:
@@ -26,6 +27,11 @@ def main() -> None:
 
     if args.version == "0.2.0":
         zip_path, sha_path, file_count = build_v0_2_zip(
+            args.out,
+            verify=args.verify_extraction,
+        )
+    elif args.version == "1.0.0":
+        zip_path, sha_path, file_count = build_v1_0_zip(
             args.out,
             verify=args.verify_extraction,
         )
