@@ -26,9 +26,8 @@ jobs:
 
       - name: Run artifact checks
         run: |
-          python scripts/check_public_source_surface.py
           python experiments/_workflow/check_v0_2_public_artifact.py
-          python experiments/_workflow/check_fixed_cutoff_theorem_packet.py
+          python experiments/_workflow/check_v1_0_public_artifact.py
           python scripts/check_text_hygiene.py
 
       - name: Run tests and style checks
@@ -38,10 +37,15 @@ jobs:
 
       - name: Verify v0.2.0 workflow and public artifact
         run: |
-          python scripts/verify_candidate_workflow.py --config experiments/_workflow/v0_2_verification_workflow.json quick
           python scripts/build_artifact.py --version 0.2.0 --out "$RUNNER_TEMP" --verify-extraction
           unzip -t "$RUNNER_TEMP/PrimeClock-Dynamics-v0.2.0.zip"
 
-      - name: Check public artifact minimal surface
+      - name: Check v0.2.0 public artifact minimal surface
         run: |
           python scripts/check_public_source_surface.py --zip "$RUNNER_TEMP/PrimeClock-Dynamics-v0.2.0.zip"
+
+      - name: Verify v1.0.0 workflow and public artifact
+        run: |
+          python scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v1_0_public_artifact.json quick
+          python scripts/build_artifact.py --version 1.0.0 --out "$RUNNER_TEMP" --verify-extraction
+          unzip -t "$RUNNER_TEMP/PrimeClock-Dynamics-v1.0.0.zip"
