@@ -1,0 +1,50 @@
+{
+  "artifact_id": "primeclock_dynamics_v1_1_0_shrinking_angle_gaussian_field",
+  "artifact_status": "public_artifact",
+  "description": "Public artifact verification workflow for PrimeClock Dynamics v1.1.0: A Shrinking-Angle Gaussian Field.",
+  "gates": {
+    "bundle": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "scripts/build_v1_1_public_artifact.py",
+            "--out",
+            "{tmp}",
+            "--verify-extraction"
+          ],
+          "expected_file": "{tmp}/PrimeClock-Dynamics-v1.1.0.zip",
+          "expected_stdout": "v1_1_public_artifact: verified_extraction=1"
+        }
+      ]
+    },
+    "quick": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "experiments/_workflow/check_v1_1_public_artifact.py"
+          ],
+          "expected_stdout": "check_v1_1_public_artifact: checks="
+        },
+        {
+          "command": [
+            "{python}",
+            "scripts/check_text_hygiene.py"
+          ],
+          "expected_stdout": "check_text_hygiene: checks="
+        },
+        {
+          "command": [
+            "{python}",
+            "-m",
+            "pytest",
+            "tests/test_collision_kernel.py",
+            "-q"
+          ],
+          "expected_stdout": "passed"
+        }
+      ]
+    }
+  }
+}

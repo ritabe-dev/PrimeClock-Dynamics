@@ -51,6 +51,7 @@ SKIP_FILE_NAMES = {
 
 RULE_DOCUMENTATION_PATHS = {
     "docs/internal/TEXT_HYGIENE_POLICY.md",
+    "scripts/check_text_hygiene.py",
 }
 
 CLAIM_BOUNDARY_PATHS = {
@@ -137,7 +138,14 @@ PROCESS_RULES = [
     ),
 ]
 
-ALL_RULES = CLAIM_RULES + RELEASE_RULES + PROCESS_RULES
+LOCAL_PATH_RULES = [
+    TextRule("forbidden local user path", re.compile(r"/Users/"), "local_path"),
+    TextRule("forbidden local user path", re.compile(r" C:\\Users\\|^C:\\Users\\"), "local_path"),
+    TextRule("forbidden local mount path", re.compile(r"/mnt/data/"), "local_path"),
+    TextRule("forbidden downloads path", re.compile(r"\bDownloads/"), "local_path"),
+]
+
+ALL_RULES = CLAIM_RULES + RELEASE_RULES + PROCESS_RULES + LOCAL_PATH_RULES
 
 
 def repo_root_from_script() -> Path:

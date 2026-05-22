@@ -1,0 +1,65 @@
+{
+  "artifact_id": "primeclock_dynamics_v1_1_0_shrinking_angle_gaussian_field",
+  "artifact_status": "public_artifact",
+  "version": "1.1.0",
+  "title": "PrimeClock Dynamics v1.1.0: A Shrinking-Angle Gaussian Field",
+  "claim_ids": [
+    "PCD-AKC-SAGF-CRT",
+    "PCD-AKC-SAGF-ZERO-RAY"
+  ],
+  "required_files": [
+    "README.md",
+    "RELEASE_NOTES_v1_1_0.md",
+    "CITATION.cff",
+    "LICENSE",
+    "pyproject.toml",
+    "setup.py",
+    "ARTIFACT_MANIFEST_v1_1_0.json",
+    "docs/SAGF_MATH_SPEC.md",
+    "docs/SAGF_CLAIM_BOUNDARY.md",
+    "docs/SAGF_RELATED_WORK.md",
+    "paper/primeclock_dynamics_v1_1_manuscript.md",
+    "experiments/_workflow/README_V1_1_PUBLIC_ARTIFACT.md",
+    "experiments/_workflow/check_v1_1_public_artifact.py",
+    "experiments/_workflow/pcd_v1_1_public_artifact.json",
+    "experiments/_workflow/pcd_v1_1_public_artifact_manifest.json",
+    "experiments/akc/run_collision_kernel_by_scale.py",
+    "scripts/build_v1_1_public_artifact.py",
+    "scripts/check_text_hygiene.py",
+    "scripts/verify_candidate_workflow.py",
+    "tests/test_collision_kernel.py"
+  ],
+  "non_claims": [
+    "integer-time shrinking-angle transfer",
+    "diagonal shrinking-angle Angular Erdos-Kac",
+    "finite-beta Angular Kubilius Chaos",
+    "standard Gaussian Multiplicative Chaos",
+    "uniform-in-alpha convergence",
+    "full Gaussian field theorem",
+    "distance-only kernel theorem for arbitrary moving angles",
+    "diagonal Mertens uncovered-measure law",
+    "high-point asymptotics",
+    "prime-time trace theorem",
+    "DOI artifact",
+    "Zenodo record",
+    "posted preprint",
+    "peer review"
+  ],
+  "verification_commands": [
+    "python3 experiments/_workflow/check_v1_1_public_artifact.py",
+    "python3 scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v1_1_public_artifact.json quick",
+    "python3 scripts/check_text_hygiene.py",
+    "python3 -m pytest tests/test_collision_kernel.py -q",
+    "python3 scripts/build_v1_1_public_artifact.py --out /tmp --verify-extraction"
+  ],
+  "excluded_from_public_artifact": [
+    "artifacts/",
+    "app/",
+    "data/",
+    "docs/internal/",
+    "internal Gate R/Gate C/Gate P status records",
+    "v0.x/v1.0 public release files not needed by v1.1",
+    "v2.0 AKC proof-program package",
+    "review drafts not needed for v1.1 public artifact"
+  ]
+}
