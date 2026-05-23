@@ -12,8 +12,8 @@ The main manuscript draft is:
 paper/primeclock_dynamics_v2_0_public_manuscript.md
 ```
 
-The research artifact version is `v2.0.0`. Python package metadata is used only
-for local verification helpers and may not track the research artifact version.
+The research artifact version is `v2.0.0`. Python package metadata is aligned
+to `2.0.0`; this does not extend the v2.0 claim surface.
 
 ## Included Claim Surface
 
