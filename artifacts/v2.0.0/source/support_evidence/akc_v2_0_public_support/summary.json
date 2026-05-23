@@ -1,0 +1,48 @@
+{
+  "doi_claimed": false,
+  "experiment_count": 6,
+  "experiments": [
+    {
+      "file": "experiment_01_01_martingale_interval_check.csv",
+      "id": 1,
+      "name": "01_martingale_interval_check",
+      "row_count": 36
+    },
+    {
+      "file": "experiment_02_02_q_point_moment_formula.csv",
+      "id": 2,
+      "name": "02_q_point_moment_formula",
+      "row_count": 3
+    },
+    {
+      "file": "experiment_03_03_l2_total_mass_stability.csv",
+      "id": 3,
+      "name": "03_l2_total_mass_stability",
+      "row_count": 8
+    },
+    {
+      "file": "experiment_04_04_two_point_kernel_integrability.csv",
+      "id": 4,
+      "name": "04_two_point_kernel_integrability",
+      "row_count": 12
+    },
+    {
+      "file": "experiment_05_05_weak_convergence_diagnostics.csv",
+      "id": 5,
+      "name": "05_weak_convergence_diagnostics",
+      "row_count": 16
+    },
+    {
+      "file": "experiment_06_06_gaussian_tangent_recovery.csv",
+      "id": 6,
+      "name": "06_gaussian_tangent_recovery",
+      "row_count": 6
+    }
+  ],
+  "high_point_theorem_claimed": false,
+  "negative_beta_boundary_claimed": false,
+  "profile": "v2_0_akc_public_support",
+  "public_artifact_support": true,
+  "public_release_claimed": true,
+  "zenodo_claimed": false
+}

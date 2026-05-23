@@ -1,0 +1,49 @@
+{
+  "artifact_id": "primeclock_dynamics_v2_0_0_angular_kubilius_chaos",
+  "artifact_status": "public_artifact",
+  "title": "PrimeClock Dynamics v2.0.0: Angular Kubilius Chaos via Holomorphic Generating Functionals",
+  "claim_ids": [
+    "PCD-AKC-MART",
+    "PCD-AKC-QPOINT",
+    "PCD-AKC-L2",
+    "PCD-AKC-LIMIT",
+    "PCD-AKC-TANGENT"
+  ],
+  "main_manuscript": "paper/primeclock_dynamics_v2_0_public_manuscript.md",
+  "citation_record": {
+    "zenodo_record": "https://zenodo.org/records/20357499",
+    "version_doi": "10.5281/zenodo.20357499",
+    "version_doi_url": "https://doi.org/10.5281/zenodo.20357499",
+    "concept_doi": "10.5281/zenodo.20336785",
+    "concept_doi_url": "https://doi.org/10.5281/zenodo.20336785",
+    "publication_date": "2026-05-24",
+    "archived_release_zip_sha256": "c93cb49bd8a6e5b5d6fa2409e8c478f4be235a66d107422f9f787982a431b5c1",
+    "note": "Separate Zenodo archive of the verified v2.0.0 public artifact. The DOI archive, release checksums, and frozen source are immutable; later repository hygiene changes must not rewrite the archived ZIP."
+  },
+  "verification_commands": [
+    "python3 experiments/_workflow/check_v2_0_public_artifact.py",
+    "python3 scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v2_0_public_artifact.json quick",
+    "python3 scripts/build_v2_0_public_artifact.py --out /tmp --verify-extraction"
+  ],
+  "non_claims": [
+    "not integer-time transfer",
+    "not diagonal Mertens",
+    "not beta-to-negative-infinity uncovered theorem",
+    "not high-point theorem",
+    "not Fisher-zero theorem",
+    "not Lee-Yang theorem",
+    "not prime-time theorem",
+    "not standard Gaussian Multiplicative Chaos",
+    "not posted preprint",
+    "not peer reviewed"
+  ],
+  "excluded_from_public_artifact": [
+    "internal gate-history packets",
+    "v1.2 internal package files",
+    "v3.0/v4.0 future workstreams",
+    "app/",
+    "data/",
+    "artifacts/",
+    "docs/internal/"
+  ]
+}

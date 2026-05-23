@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this PrimeClock Dynamics v1.1.0 public research artifact, cite it as below. This is not peer reviewed and is not a DOI/Zenodo record unless a separate deposit is issued."
+title: "PrimeClock Dynamics v1.1.0: A Shrinking-Angle Gaussian Field"
+version: "1.1.0"
+date-released: "2026-05-23"
+authors:
+  - family-names: "Itabe"
+    given-names: "Rio"
+license: "MIT"
+repository-code: "https://github.com/ritabe-dev/PrimeClock-Dynamics"

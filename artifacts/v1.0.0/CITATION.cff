@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use PrimeClock Dynamics v1.0.0, cite the versioned Zenodo archive below. The artifact is not peer reviewed."
+title: "PrimeClock Dynamics: An Angular Erdos-Kac Theorem and a Fixed-Cutoff Geometric Mertens Identity"
+authors:
+  - family-names: "Itabe"
+    given-names: "Rio"
+version: "1.0.0"
+date-released: "2026-05-22"
+doi: "10.5281/zenodo.20336786"
+url: "https://zenodo.org/records/20336786"
+abstract: "A public research artifact and preprint-style manuscript proving a finite-dimensional fixed-angle Angular Erdos-Kac theorem and recording a fixed-cutoff CRT uncovered-average identity with classical Mertens product asymptotic."
+license: "MIT"
+repository-code: "https://github.com/ritabe-dev/PrimeClock-Dynamics"

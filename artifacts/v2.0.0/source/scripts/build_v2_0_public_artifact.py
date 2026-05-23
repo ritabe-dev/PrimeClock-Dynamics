@@ -14,8 +14,6 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-FROZEN_SOURCE_ROOT = ROOT / "artifacts/v2.0.0/source"
-SOURCE_ROOT = FROZEN_SOURCE_ROOT if FROZEN_SOURCE_ROOT.is_dir() else ROOT
 TOP_LEVEL = "PrimeClock-Dynamics-v2.0.0"
 ZIP_NAME = f"{TOP_LEVEL}.zip"
 ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
@@ -116,9 +114,9 @@ def run_command(cwd: Path, command: list[str], *, env_overrides: dict[str, str] 
 
 def resolve_source(relative: str) -> Path:
     alias = SOURCE_ALIASES.get(relative)
-    if alias is not None and (SOURCE_ROOT / alias).is_file():
-        return SOURCE_ROOT / alias
-    return SOURCE_ROOT / relative
+    if alias is not None and (ROOT / alias).is_file():
+        return ROOT / alias
+    return ROOT / relative
 
 
 def source_files() -> list[Path]:
@@ -128,13 +126,13 @@ def source_files() -> list[Path]:
         if not path.is_file():
             raise SystemExit(f"required v2.0 public artifact file missing: {relative}")
         files.append(path)
-    for path in sorted((SOURCE_ROOT / "src/prime_clock_dynamics").glob("*.py")):
+    for path in sorted((ROOT / "src/prime_clock_dynamics").glob("*.py")):
         files.append(path)
     return sorted(files, key=lambda item: archive_relative(item).as_posix())
 
 
 def archive_relative(path: Path) -> Path:
-    relative = path.relative_to(SOURCE_ROOT).as_posix()
+    relative = path.relative_to(ROOT).as_posix()
     for archive_name, source_name in SOURCE_ALIASES.items():
         if relative == source_name:
             return Path(archive_name)
@@ -151,7 +149,7 @@ def write_stable_file(archive: zipfile.ZipFile, source: Path, archive_name: Path
 def build_support(support_dir: Path) -> list[Path]:
     support_dir.mkdir(parents=True, exist_ok=True)
     run_command(
-        SOURCE_ROOT,
+        ROOT,
         [
             sys.executable,
             "experiments/akc/run_akc_v2_0_public_support.py",

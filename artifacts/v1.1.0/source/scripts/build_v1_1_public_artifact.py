@@ -14,8 +14,6 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-FROZEN_SOURCE_ROOT = ROOT / "artifacts/v1.1.0/source"
-SOURCE_ROOT = FROZEN_SOURCE_ROOT if FROZEN_SOURCE_ROOT.is_dir() else ROOT
 TOP_LEVEL = "PrimeClock-Dynamics-v1.1.0"
 ZIP_NAME = f"{TOP_LEVEL}.zip"
 ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
@@ -108,20 +106,20 @@ def run_command(cwd: Path, command: list[str]) -> None:
 def source_files() -> list[Path]:
     files: list[Path] = []
     for relative in sorted(INCLUDE_EXACT):
-        if relative in SOURCE_ALIASES and (SOURCE_ROOT / SOURCE_ALIASES[relative]).is_file():
-            path = SOURCE_ROOT / SOURCE_ALIASES[relative]
+        if relative in SOURCE_ALIASES and (ROOT / SOURCE_ALIASES[relative]).is_file():
+            path = ROOT / SOURCE_ALIASES[relative]
         else:
-            path = SOURCE_ROOT / relative
+            path = ROOT / relative
         if not path.is_file():
             raise SystemExit(f"required v1.1 public artifact file missing: {relative}")
         files.append(path)
-    for path in sorted((SOURCE_ROOT / "src/prime_clock_dynamics").glob("*.py")):
+    for path in sorted((ROOT / "src/prime_clock_dynamics").glob("*.py")):
         files.append(path)
-    return sorted(files, key=lambda item: item.relative_to(SOURCE_ROOT).as_posix())
+    return sorted(files, key=lambda item: item.relative_to(ROOT).as_posix())
 
 
 def archive_relative(path: Path) -> Path:
-    relative = path.relative_to(SOURCE_ROOT).as_posix()
+    relative = path.relative_to(ROOT).as_posix()
     for archive_name, source_name in SOURCE_ALIASES.items():
         if relative == source_name:
             return Path(archive_name)

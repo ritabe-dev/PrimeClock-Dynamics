@@ -1,0 +1,4 @@
+experiment_id,case_id,cutoff,q,beta,direct_crt_average,hcgf_q_point_formula,abs_error,status
+2,1,7,2,7.500000000000e-01,1.227684749879e+00,1.227684749879e+00,0.000000000000e+00,public_q_point_formula_support
+2,2,7,3,-5.000000000000e-01,1.190189221441e+00,1.190189221441e+00,0.000000000000e+00,public_q_point_formula_support
+2,3,11,3,4.000000000000e-01,9.201568343650e-01,9.201568343650e-01,0.000000000000e+00,public_q_point_formula_support
