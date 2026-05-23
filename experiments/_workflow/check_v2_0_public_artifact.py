@@ -10,6 +10,8 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
+FROZEN_SOURCE_ROOT = ROOT / "artifacts/v2.0.0/source"
+SOURCE_ROOT = FROZEN_SOURCE_ROOT if FROZEN_SOURCE_ROOT.is_dir() else ROOT
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 
@@ -18,12 +20,12 @@ from experiments.akc.run_akc_v2_0_public_support import build_support
 MANIFEST = ROOT / "experiments/_workflow/pcd_v2_0_public_artifact_manifest.json"
 WORKFLOW = ROOT / "experiments/_workflow/pcd_v2_0_public_artifact.json"
 README_PUBLIC_WORKFLOW = ROOT / "experiments/_workflow/README_V2_0_PUBLIC_ARTIFACT.md"
-PUBLIC_MANIFEST = ROOT / "ARTIFACT_MANIFEST_v2_0_0_PUBLIC.json"
-RELEASE_NOTES = ROOT / "RELEASE_NOTES_v2_0_0_PUBLIC.md"
-README_PUBLIC = ROOT / "README_V2_0_0_PUBLIC.md"
-CITATION = ROOT / "CITATION_v2_0_0_PUBLIC.cff"
-MANUSCRIPT = ROOT / "paper/primeclock_dynamics_v2_0_public_manuscript.md"
-CLAIM_BOUNDARY = ROOT / "docs/AKC_V2_0_PUBLIC_CLAIM_BOUNDARY.md"
+PUBLIC_MANIFEST = SOURCE_ROOT / "ARTIFACT_MANIFEST_v2_0_0.json"
+RELEASE_NOTES = SOURCE_ROOT / "RELEASE_NOTES_v2_0_0.md"
+README_PUBLIC = SOURCE_ROOT / "README.md"
+CITATION = SOURCE_ROOT / "CITATION.cff"
+MANUSCRIPT = SOURCE_ROOT / "paper/primeclock_dynamics_v2_0_public_manuscript.md"
+CLAIM_BOUNDARY = SOURCE_ROOT / "docs/AKC_V2_0_PUBLIC_CLAIM_BOUNDARY.md"
 BUILDER = ROOT / "scripts/build_v2_0_public_artifact.py"
 
 FORBIDDEN_REQUIRED_FILES = {
@@ -171,10 +173,6 @@ def check_text_surface(failures: list[str]) -> None:
             "PCD-AKC-L2",
             "PCD-AKC-LIMIT",
             "This public artifact does not claim",
-            "v3.0 is reserved for the Mertens boundary of AKC",
-            "v3.5 soft integer-time transfer",
-            "v4.0 integer-time diagonal Mertens",
-            "v5.0\nhigh-point/extremal",
         ],
         failures,
     )
@@ -194,10 +192,6 @@ def check_text_surface(failures: list[str]) -> None:
             "Angular Kubilius Chaos via Holomorphic Generating Functionals",
             "Included Claim Surface",
             "Non-Claims",
-            "v3.0 is reserved for the complete-CRT Mertens boundary of AKC",
-            "v3.5 soft integer-time transfer",
-            "v4.0 integer-time diagonal Mertens",
-            "v5.0\nhigh-point/extremal",
         ],
         failures,
     )

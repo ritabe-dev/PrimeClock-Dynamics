@@ -1,0 +1,70 @@
+{
+  "candidate_id": "pcd_v3_0_public_artifact",
+  "candidate_status": "public_artifact",
+  "public_release": true,
+  "description": "Public artifact workflow for PrimeClock Dynamics v3.0 Mertens Boundary.",
+  "gates": {
+    "quick": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "experiments/_workflow/check_v3_0_public_artifact.py"
+          ],
+          "expected_stdout": "check_v3_0_public_artifact: checks="
+        },
+        {
+          "command": [
+            "{python}",
+            "scripts/check_text_hygiene.py"
+          ],
+          "expected_stdout": "check_text_hygiene: checks="
+        },
+        {
+          "env": {
+            "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+          },
+          "command": [
+            "{python}",
+            "-m",
+            "pytest",
+            "tests/test_mertens_boundary.py",
+            "tests/test_mb_v3_0_public_surface.py",
+            "tests/test_text_hygiene.py",
+            "-q"
+          ],
+          "expected_stdout": "passed"
+        }
+      ]
+    },
+    "support": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "experiments/mb/run_mb_v3_0_public_support.py",
+            "--out-dir",
+            "{tmp}/mb_v3_0_public_support"
+          ],
+          "expected_stdout": "mb_v3_0_public_support: experiments=6",
+          "expected_file": "{tmp}/mb_v3_0_public_support/summary.json"
+        }
+      ]
+    },
+    "bundle": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "scripts/build_v3_0_public_artifact.py",
+            "--out",
+            "{tmp}",
+            "--verify-extraction"
+          ],
+          "expected_stdout": "v3_0_public_artifact: verified_extraction=1",
+          "expected_file": "{tmp}/PrimeClock-Dynamics-v3.0.0.zip"
+        }
+      ]
+    }
+  }
+}

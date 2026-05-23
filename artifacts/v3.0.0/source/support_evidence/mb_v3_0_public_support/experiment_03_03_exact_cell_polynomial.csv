@@ -1,0 +1,14 @@
+experiment_id,seed,cutoff,degree,coefficient,uncovered_coefficient,mertens_normalized_uncovered,coefficient_sum_check,status
+3,0,7,0,1/2,1/2,35/16,1/1,public_cell_polynomial_exact_endpoint
+3,0,7,1,1/6,1/2,35/16,1/1,public_cell_polynomial_exact_endpoint
+3,0,7,2,2/15,1/2,35/16,1/1,public_cell_polynomial_exact_endpoint
+3,0,7,3,2/35,1/2,35/16,1/1,public_cell_polynomial_exact_endpoint
+3,0,7,4,1/7,1/2,35/16,1/1,public_cell_polynomial_exact_endpoint
+3,5,7,0,13/60,13/60,91/96,1/1,public_cell_polynomial_exact_endpoint
+3,5,7,1,209/420,13/60,91/96,1/1,public_cell_polynomial_exact_endpoint
+3,5,7,2,5/28,13/60,91/96,1/1,public_cell_polynomial_exact_endpoint
+3,5,7,3,3/28,13/60,91/96,1/1,public_cell_polynomial_exact_endpoint
+3,17,7,0,5/12,5/12,175/96,1/1,public_cell_polynomial_exact_endpoint
+3,17,7,1,2/15,5/12,175/96,1/1,public_cell_polynomial_exact_endpoint
+3,17,7,2,43/140,5/12,175/96,1/1,public_cell_polynomial_exact_endpoint
+3,17,7,3,1/7,5/12,175/96,1/1,public_cell_polynomial_exact_endpoint

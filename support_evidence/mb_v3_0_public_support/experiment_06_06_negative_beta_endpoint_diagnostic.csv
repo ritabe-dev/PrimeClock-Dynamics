@@ -1,0 +1,13 @@
+experiment_id,seed,cutoff,beta,finite_beta_total_mass_exact_polynomial,mertens_normalized_uncovered,abs_gap_to_mertens_normalized_uncovered,status
+6,0,7,-2.000000000000e+00,1.793058517165e+00,2.187500000000e+00,3.944414828350e-01,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,0,7,-4.000000000000e+00,2.125597940806e+00,2.187500000000e+00,6.190205919400e-02,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,0,7,-8.000000000000e+00,2.186338636519e+00,2.187500000000e+00,1.161363481000e-03,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,0,7,-1.200000000000e+01,2.187478719441e+00,2.187500000000e+00,2.128055900000e-05,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,5,7,-2.000000000000e+00,9.817273225960e-01,9.479166666670e-01,3.381065592900e-02,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,5,7,-4.000000000000e+00,9.541846394150e-01,9.479166666670e-01,6.267972749000e-03,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,5,7,-8.000000000000e+00,9.480374005780e-01,9.479166666670e-01,1.207339110000e-04,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,5,7,-1.200000000000e+01,9.479188800380e-01,9.479166666670e-01,2.213372000000e-06,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,17,7,-2.000000000000e+00,1.504576358232e+00,1.822916666667e+00,3.183403084340e-01,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,17,7,-4.000000000000e+00,1.771181965186e+00,1.822916666667e+00,5.173470148100e-02,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,17,7,-8.000000000000e+00,1.821940811868e+00,1.822916666667e+00,9.758547980000e-04,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial
+6,17,7,-1.200000000000e+01,1.822898783563e+00,1.822916666667e+00,1.788310400000e-05,public_negative_beta_to_mertens_normalized_endpoint_exact_polynomial

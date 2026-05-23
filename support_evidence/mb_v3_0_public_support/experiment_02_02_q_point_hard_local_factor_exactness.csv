@@ -1,0 +1,4 @@
+experiment_id,case_id,cutoff,q,direct_crt_average,hard_q_point_formula,exact_difference,exact_match,status
+2,1,5,2,45/16,45/16,0/1,1,public_hard_q_point_formula_exact_enumeration
+2,2,5,3,675/128,675/128,0/1,1,public_hard_q_point_formula_exact_enumeration
+2,3,7,3,0/1,0/1,0/1,1,public_hard_q_point_formula_exact_enumeration
