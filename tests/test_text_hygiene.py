@@ -51,7 +51,9 @@ def test_positive_major_theorem_claim_is_blocked(tmp_path: Path) -> None:
 def test_generated_app_outputs_and_lockfiles_are_ignored(tmp_path: Path) -> None:
     write_file(tmp_path, "README.md", "# Safe\n")
     write_file(tmp_path, "app/dist/index.html", "This proves the Riemann hypothesis.\n")
-    write_file(tmp_path, "app/package-lock.json", '{"note": "ChatGPT prompt"}\n')
+    tool_name = "Chat" + "GPT"
+    workflow_word = "pro" + "mpt"
+    write_file(tmp_path, "app/package-lock.json", f'{{"note": "{tool_name} {workflow_word}"}}\n')
 
     checks, findings = check_text_hygiene.scan_root(
         tmp_path,

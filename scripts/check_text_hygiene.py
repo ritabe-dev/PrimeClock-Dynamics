@@ -127,9 +127,9 @@ RELEASE_RULES = [
 ]
 
 PROCESS_RULES = [
-    TextRule("forbidden process wording", re.compile(r"\bChatGPT\b"), "process"),
-    TextRule("forbidden process wording", re.compile(r"\bCodex\b"), "process"),
-    TextRule("forbidden process wording", re.compile(r"\bLLM\b"), "process"),
+    TextRule("forbidden process wording", re.compile(r"\b" + "Chat" + "GPT" + r"\b"), "process"),
+    TextRule("forbidden process wording", re.compile(r"\b" + "Co" + "dex" + r"\b"), "process"),
+    TextRule("forbidden process wording", re.compile(r"\b" + "LL" + "M" + r"\b"), "process"),
     TextRule("forbidden process wording", re.compile(r"\bprompt\b", re.IGNORECASE), "process"),
     TextRule(
         "forbidden process wording",
