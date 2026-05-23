@@ -43,5 +43,7 @@ prime-time theorem, standard Gaussian Multiplicative Chaos, a result about
 prime gaps, a result about the Riemann hypothesis, posted preprint, or peer
 review.
 
-v3.0 Mertens boundary, v4.0 integer-time diagonal Mertens, and v5.0
+v3.0 is reserved for the Mertens boundary of AKC: complete-CRT
+Mertens-normalized uncovered measures at the `beta -> -infinity` hard endpoint.
+v3.5 soft integer-time transfer, v4.0 integer-time diagonal Mertens, and v5.0
 high-point/extremal directions are future targets only.

@@ -40,7 +40,9 @@ This public artifact does not claim:
 - a result about prime gaps or the Riemann hypothesis;
 - posted preprint or peer review.
 
-v3.0 Mertens boundary, v4.0 integer-time diagonal Mertens, and v5.0
+v3.0 is reserved for the complete-CRT Mertens boundary of AKC:
+Mertens-normalized uncovered measures at the `beta -> -infinity` hard endpoint.
+v3.5 soft integer-time transfer, v4.0 integer-time diagonal Mertens, and v5.0
 high-point/extremal directions remain future targets and are not part of this
 v2.0 claim surface.
 
