@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="prime-clock-dynamics",
-    version="1.1.0",
+    version="0.2.0",
     description="Prime-periodic circle dynamics and angular sieve experiments.",
     package_dir={"": "src"},
     packages=find_packages("src"),

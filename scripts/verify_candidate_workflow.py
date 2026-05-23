@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -54,9 +55,18 @@ def run_command(
         raise SystemExit(f"workflow cwd does not exist: {cwd}")
 
     expanded_command = [expand(item, python=python, tmp=tmp) for item in command]
+    env = os.environ.copy()
+    env_spec = command_spec.get("env", {})
+    if not isinstance(env_spec, dict) or not all(
+        isinstance(key, str) and isinstance(value, str) for key, value in env_spec.items()
+    ):
+        raise SystemExit("workflow env must be an object with string keys and values")
+    for key, value in env_spec.items():
+        env[key] = expand(value, python=python, tmp=tmp)
     completed = subprocess.run(
         expanded_command,
         cwd=cwd,
+        env=env,
         text=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,

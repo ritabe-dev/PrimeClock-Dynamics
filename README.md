@@ -1,73 +1,69 @@
-# PrimeClock Dynamics v1.1.0
+# PrimeClock Dynamics v2.0.0
 
-**A Shrinking-Angle Gaussian Field**
+**Angular Kubilius Chaos via Holomorphic Generating Functionals**
 
-This is the PrimeClock Dynamics v1.1.0 public research artifact for the
-complete-CRT Shrinking-Angle Gaussian Field theorem surface. It is not a DOI
-artifact, not a Zenodo record, not a posted preprint, and not peer reviewed.
+This public research artifact records the PrimeClock Dynamics v2.0.0 complete-CRT
+finite-beta Angular Kubilius Chaos theorem surface. It is not a DOI artifact,
+not a Zenodo record, not a posted preprint, and not peer reviewed.
 
-The artifact version is `v1.1.0`. The Python package metadata is aligned to
-`1.1.0`; this does not extend the v1.1 claim surface.
-
-The main manuscript is:
+The main manuscript draft is:
 
 ```text
-paper/primeclock_dynamics_v1_1_manuscript.md
+paper/primeclock_dynamics_v2_0_public_manuscript.md
 ```
 
-## Claim Surface
+The research artifact version is `v2.0.0`. Python package metadata is used only
+for local verification helpers and may not track the research artifact version.
 
-- complete-CRT collision kernel for moving angles;
-- complete-CRT kernel-conditioned finite-dimensional Gaussian convergence;
-- explicit zero-ray shrinking-angle Gaussian corollary;
-- deterministic collision-kernel support checks.
+## Included Claim Surface
+
+- complete-CRT finite-beta AKC random measure;
+- martingale random measures for bounded Borel test functions;
+- q-point local factor / moment formula;
+- finite-beta L2 total-mass bound;
+- weak convergence of complete-CRT random finite measures;
+- Gaussian tangent recovery linking v1.1 and v1.2 to v2.0.
 
 ## Non-Claims
 
 This public artifact does not claim:
 
-- integer-time shrinking-angle transfer;
-- diagonal shrinking-angle Angular Erdos-Kac;
-- finite-beta Angular Kubilius Chaos;
+- integer-time finite-beta transfer;
+- diagonal Mertens uncovered-measure theorem;
+- beta-to-negative-infinity uncovered theorem;
+- high-point or extremal theorem;
+- Fisher-zero theorem;
+- Lee-Yang theorem;
+- prime-time theorem;
 - standard Gaussian Multiplicative Chaos;
-- uniform-in-alpha convergence;
-- a full Gaussian field theorem over all angles;
-- a distance-only collision-kernel theorem for arbitrary moving angles;
-- a diagonal Mertens uncovered-measure law;
-- high-point or extremal asymptotics;
-- prime-time trace theorems;
+- a result about prime gaps or the Riemann hypothesis;
 - DOI, Zenodo publication, posted preprint, or peer review.
 
-Angular Kubilius Chaos is mentioned only as later outlook.
+v3.0 Mertens boundary, v4.0 integer-time diagonal Mertens, and v5.0
+high-point/extremal directions remain future targets and are not part of this
+v2.0 claim surface.
 
-Some helper modules from earlier Dynamics work are included as package context.
-Their presence does not extend the v1.1 claim surface beyond the
-Shrinking-Angle Gaussian Field result described here.
+## Reading Order
+
+1. `paper/primeclock_dynamics_v2_0_public_manuscript.md`
+2. `docs/AKC_V2_0_PUBLIC_CLAIM_BOUNDARY.md`
+3. `experiments/_workflow/README_V2_0_PUBLIC_ARTIFACT.md`
+4. `support_evidence/akc_v2_0_public_support/summary.json`
 
 ## Verification
 
 ```bash
 python3 -m pip install -e ".[dev]"
-python3 experiments/_workflow/check_v1_1_public_artifact.py
-python3 scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v1_1_public_artifact.json quick
+python3 experiments/_workflow/check_v2_0_public_artifact.py
+python3 scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v2_0_public_artifact.json quick
 python3 scripts/check_text_hygiene.py
-python3 -m pytest tests/test_collision_kernel.py -q
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest tests/test_akc.py tests/test_akc_v2_0_public_surface.py tests/test_text_hygiene.py -q
 ```
 
 To rebuild the public artifact ZIP:
 
 ```bash
-python3 scripts/build_v1_1_public_artifact.py --out /tmp --verify-extraction
-```
-
-## Repository Map
-
-```text
-docs/        v1.1 definitions, related work, and claim boundaries
-paper/       v1.1 manuscript
-src/         prime_clock_dynamics Python package
-tests/       focused kernel and workflow tests
-experiments/ reproducibility workflows and support builders
+python3 scripts/build_v2_0_public_artifact.py --out /tmp --verify-extraction
 ```
 
 MIT License. See `LICENSE`.

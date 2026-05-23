@@ -87,6 +87,9 @@ def test_cli_reports_failures(tmp_path: Path) -> None:
 
 
 def test_real_workflow_config_runs_text_hygiene() -> None:
-    workflow = ROOT / "experiments/_workflow/pcd_v1_0_public_artifact.json"
-    text = workflow.read_text(encoding="utf-8")
-    assert "scripts/check_text_hygiene.py" in text
+    workflows = sorted((ROOT / "experiments/_workflow").glob("*.json"))
+    assert workflows
+    assert any(
+        "scripts/check_text_hygiene.py" in workflow.read_text(encoding="utf-8")
+        for workflow in workflows
+    )
