@@ -1,0 +1,49 @@
+{
+  "diagonal_mertens_claimed": false,
+  "doi_claimed": false,
+  "experiment_count": 6,
+  "experiments": [
+    {
+      "file": "experiment_01_01_one_prime_hard_normalizer.csv",
+      "id": 1,
+      "name": "01_one_prime_hard_normalizer",
+      "row_count": 15
+    },
+    {
+      "file": "experiment_02_02_q_point_hard_local_factor_exactness.csv",
+      "id": 2,
+      "name": "02_q_point_hard_local_factor_exactness",
+      "row_count": 3
+    },
+    {
+      "file": "experiment_03_03_exact_cell_polynomial.csv",
+      "id": 3,
+      "name": "03_exact_cell_polynomial",
+      "row_count": 13
+    },
+    {
+      "file": "experiment_04_04_mertens_normalized_total_mass.csv",
+      "id": 4,
+      "name": "04_mertens_normalized_total_mass",
+      "row_count": 2
+    },
+    {
+      "file": "experiment_05_05_two_point_l2_route_support.csv",
+      "id": 5,
+      "name": "05_two_point_l2_route_support",
+      "row_count": 12
+    },
+    {
+      "file": "experiment_06_06_negative_beta_endpoint_diagnostic.csv",
+      "id": 6,
+      "name": "06_negative_beta_endpoint_diagnostic",
+      "row_count": 12
+    }
+  ],
+  "high_point_theorem_claimed": false,
+  "integer_time_transfer_claimed": false,
+  "profile": "v3_0_mertens_boundary_public_support",
+  "public_artifact_support": true,
+  "public_release_claimed": true,
+  "zenodo_claimed": false
+}

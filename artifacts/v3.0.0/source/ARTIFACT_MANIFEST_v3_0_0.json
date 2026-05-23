@@ -1,0 +1,42 @@
+{
+  "artifact_id": "primeclock_dynamics_v3_0_0_mertens_boundary",
+  "artifact_status": "public_artifact",
+  "version": "3.0.0",
+  "title": "PrimeClock Dynamics v3.0.0: The Mertens Boundary of Angular Kubilius Chaos",
+  "claim_ids": [
+    "PCD-MB-MART",
+    "PCD-MB-QPOINT",
+    "PCD-MB-L2",
+    "PCD-MB-LIMIT",
+    "PCD-MB-FB-ENDPOINT"
+  ],
+  "main_manuscript": "paper/primeclock_dynamics_v3_0_public_manuscript.md",
+  "verification_commands": [
+    "python3 experiments/_workflow/check_v3_0_public_artifact.py",
+    "python3 scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v3_0_public_artifact.json quick",
+    "python3 scripts/build_v3_0_public_artifact.py --out /tmp --verify-extraction"
+  ],
+  "non_claims": [
+    "not integer-time transfer",
+    "not diagonal Mertens uncovered-measure theorem",
+    "not U_n(n) log n -> e^{-gamma}",
+    "not beta-to-positive-infinity high-point theorem",
+    "not Fisher-zero theorem",
+    "not Lee-Yang theorem",
+    "not prime-time theorem",
+    "not standard Gaussian Multiplicative Chaos",
+    "not a new proof of the classical Mertens product theorem",
+    "not posted preprint",
+    "not peer reviewed"
+  ],
+  "excluded_from_public_artifact": [
+    "internal Gate R review bundle",
+    "internal Gate C review bundle",
+    "v1.2 internal package files",
+    "future v3.5/v4.0/v5.0 workstreams",
+    "app/",
+    "data/",
+    "artifacts/",
+    "docs/internal/"
+  ]
+}

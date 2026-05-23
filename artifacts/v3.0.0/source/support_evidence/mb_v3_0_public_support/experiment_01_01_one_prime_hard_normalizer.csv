@@ -1,0 +1,16 @@
+experiment_id,prime,alpha,selected_residue,one_prime_expectation,exact_equals_one,status
+1,2,0/1,0,1/1,1,public_hard_one_prime_normalizer_exact
+1,2,1/7,0,1/1,1,public_hard_one_prime_normalizer_exact
+1,2,3/10,1,1/1,1,public_hard_one_prime_normalizer_exact
+1,3,0/1,0,1/1,1,public_hard_one_prime_normalizer_exact
+1,3,1/7,0,1/1,1,public_hard_one_prime_normalizer_exact
+1,3,3/10,1,1/1,1,public_hard_one_prime_normalizer_exact
+1,5,0/1,0,1/1,1,public_hard_one_prime_normalizer_exact
+1,5,1/7,1,1/1,1,public_hard_one_prime_normalizer_exact
+1,5,3/10,2,1/1,1,public_hard_one_prime_normalizer_exact
+1,7,0/1,0,1/1,1,public_hard_one_prime_normalizer_exact
+1,7,1/7,1,1/1,1,public_hard_one_prime_normalizer_exact
+1,7,3/10,2,1/1,1,public_hard_one_prime_normalizer_exact
+1,11,0/1,0,1/1,1,public_hard_one_prime_normalizer_exact
+1,11,1/7,2,1/1,1,public_hard_one_prime_normalizer_exact
+1,11,3/10,3,1/1,1,public_hard_one_prime_normalizer_exact
