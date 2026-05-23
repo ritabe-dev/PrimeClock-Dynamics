@@ -1,7 +1,8 @@
 # PrimeClock Dynamics v2.0.0: Angular Kubilius Chaos via Holomorphic Generating Functionals
 
-Status: v2.0.0 public artifact manuscript. This is not a DOI artifact, not a
-Zenodo record, not a posted preprint, and not peer reviewed.
+Status: v2.0.0 public artifact manuscript. This is not a posted preprint and
+not peer reviewed. If this version is archived separately on Zenodo, cite the
+issued DOI for that deposited version.
 
 ## AKC-P1: Scope
 
@@ -273,5 +274,4 @@ This public artifact manuscript does not claim integer-time finite-beta transfer
 diagonal Mertens uncovered-measure theorem, beta-to-negative-infinity uncovered
 theorem, high-point theorem, Fisher-zero theorem, Lee-Yang theorem, prime-time
 theorem, standard Gaussian Multiplicative Chaos, a result about prime gaps, a
-result about the Riemann hypothesis, DOI, Zenodo publication, posted preprint,
-or peer review.
+result about the Riemann hypothesis, posted preprint, or peer review.

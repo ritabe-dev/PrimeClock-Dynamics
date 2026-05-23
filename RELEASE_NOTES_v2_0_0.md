@@ -2,7 +2,8 @@
 
 PrimeClock Dynamics v2.0.0 records Angular Kubilius Chaos via Holomorphic
 Generating Functionals as a public research artifact. This artifact is not a
-DOI artifact, not a Zenodo record, not a posted preprint, and not peer reviewed.
+posted preprint and not peer reviewed. If this version is archived separately
+on Zenodo, cite the issued DOI for that deposited version.
 
 ## Title
 
@@ -23,8 +24,8 @@ Functionals
 This public artifact does not claim integer-time finite-beta transfer, diagonal
 Mertens uncovered-measure theorem, beta-to-negative-infinity uncovered theorem,
 high-point or extremal theorem, Fisher-zero theorem, Lee-Yang theorem,
-prime-time theorem, standard Gaussian Multiplicative Chaos, DOI, Zenodo
-publication, posted preprint, or peer review.
+prime-time theorem, standard Gaussian Multiplicative Chaos, posted preprint, or
+peer review.
 
 ## Verification
 

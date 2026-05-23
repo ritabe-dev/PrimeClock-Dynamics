@@ -1,8 +1,8 @@
 # PrimeClock Dynamics v2.0.0 Public Artifact
 
 This is the public research artifact surface for PrimeClock Dynamics v2.0.0.
-It is not a DOI artifact, not a Zenodo record, not a posted preprint, and not
-peer reviewed.
+It is not a posted preprint and not peer reviewed. If this version is archived
+separately on Zenodo, cite the issued DOI for that deposited version.
 
 ## Artifact
 

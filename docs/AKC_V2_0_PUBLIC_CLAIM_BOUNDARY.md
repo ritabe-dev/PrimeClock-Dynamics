@@ -1,7 +1,8 @@
 # PrimeClock Dynamics v2.0.0 Public Claim Boundary
 
-Status: public artifact claim-boundary note. This is not a DOI artifact, not a
-Zenodo record, not a posted preprint, and not peer reviewed.
+Status: public artifact claim-boundary note. This is not a posted preprint and
+not peer reviewed. If this version is archived separately on Zenodo, cite the
+issued DOI for that deposited version.
 
 ## Positive Claim Surface
 
@@ -39,8 +40,8 @@ This public artifact does not claim integer-time finite-beta transfer,
 diagonal Mertens uncovered-measure theorem, beta-to-negative-infinity uncovered
 theorem, high-point or extremal theorem, Fisher-zero theorem, Lee-Yang theorem,
 prime-time theorem, standard Gaussian Multiplicative Chaos, a result about
-prime gaps, a result about the Riemann hypothesis, DOI, Zenodo publication,
-posted preprint, or peer review.
+prime gaps, a result about the Riemann hypothesis, posted preprint, or peer
+review.
 
 v3.0 Mertens boundary, v4.0 integer-time diagonal Mertens, and v5.0
 high-point/extremal directions are future targets only.

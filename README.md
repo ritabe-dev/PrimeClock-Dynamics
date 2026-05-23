@@ -3,8 +3,9 @@
 **Angular Kubilius Chaos via Holomorphic Generating Functionals**
 
 This public research artifact records the PrimeClock Dynamics v2.0.0 complete-CRT
-finite-beta Angular Kubilius Chaos theorem surface. It is not a DOI artifact,
-not a Zenodo record, not a posted preprint, and not peer reviewed.
+finite-beta Angular Kubilius Chaos theorem surface. It is not a posted preprint
+and not peer reviewed. If this version is archived separately on Zenodo, cite
+the issued DOI for that deposited version.
 
 The main manuscript draft is:
 
@@ -37,7 +38,7 @@ This public artifact does not claim:
 - prime-time theorem;
 - standard Gaussian Multiplicative Chaos;
 - a result about prime gaps or the Riemann hypothesis;
-- DOI, Zenodo publication, posted preprint, or peer review.
+- posted preprint or peer review.
 
 v3.0 Mertens boundary, v4.0 integer-time diagonal Mertens, and v5.0
 high-point/extremal directions remain future targets and are not part of this
