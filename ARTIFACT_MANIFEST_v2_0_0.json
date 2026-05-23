@@ -10,6 +10,16 @@
     "PCD-AKC-TANGENT"
   ],
   "main_manuscript": "paper/primeclock_dynamics_v2_0_public_manuscript.md",
+  "citation_record": {
+    "zenodo_record": "https://zenodo.org/records/20357499",
+    "version_doi": "10.5281/zenodo.20357499",
+    "version_doi_url": "https://doi.org/10.5281/zenodo.20357499",
+    "concept_doi": "10.5281/zenodo.20336785",
+    "concept_doi_url": "https://doi.org/10.5281/zenodo.20336785",
+    "publication_date": "2026-05-24",
+    "archived_release_zip_sha256": "c93cb49bd8a6e5b5d6fa2409e8c478f4be235a66d107422f9f787982a431b5c1",
+    "note": "Separate Zenodo archive of the verified v2.0.0 public artifact. The DOI archive, release checksums, and frozen source are immutable; later repository hygiene changes must not rewrite the archived ZIP."
+  },
   "verification_commands": [
     "python3 experiments/_workflow/check_v2_0_public_artifact.py",
     "python3 scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v2_0_public_artifact.json quick",
@@ -24,7 +34,6 @@
     "not Lee-Yang theorem",
     "not prime-time theorem",
     "not standard Gaussian Multiplicative Chaos",
-    "separate Zenodo deposit may issue a DOI for this version",
     "not posted preprint",
     "not peer reviewed"
   ],

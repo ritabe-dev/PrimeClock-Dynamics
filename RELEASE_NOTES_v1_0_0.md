@@ -1,8 +1,12 @@
 # PrimeClock Dynamics v1.0.0 Release Notes
 
 PrimeClock Dynamics v1.0.0 is a public research artifact and preprint-style
-manuscript. It is not peer reviewed. It is not a DOI artifact or Zenodo record
-unless a DOI/Zenodo deposit is issued separately.
+manuscript. It is not peer reviewed. A separate Zenodo record now archives the
+verified v1.0.0 GitHub Release artifact:
+
+- Zenodo record: <https://zenodo.org/records/20336786>
+- Version DOI: <https://doi.org/10.5281/zenodo.20336786>
+- Concept DOI: <https://doi.org/10.5281/zenodo.20336785>
 
 ## Title
 

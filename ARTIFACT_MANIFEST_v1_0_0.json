@@ -22,10 +22,19 @@
     "generated CSV data outside deterministic support outputs"
   ],
   "main_manuscript": "paper/primeclock_dynamics_v1_0_preprint.md",
+  "citation_record": {
+    "zenodo_record": "https://zenodo.org/records/20336786",
+    "version_doi": "10.5281/zenodo.20336786",
+    "version_doi_url": "https://doi.org/10.5281/zenodo.20336786",
+    "concept_doi": "10.5281/zenodo.20336785",
+    "concept_doi_url": "https://doi.org/10.5281/zenodo.20336785",
+    "publication_date": "2026-05-22",
+    "archived_release_zip_sha256": "094d3e1ffe529073c0844c4e7b37e51de5139514e3dcb3cbc245f091ddb174c1",
+    "note": "Separate Zenodo archive of the verified v1.0.0 GitHub Release artifact; the original release asset and frozen source are not rewritten."
+  },
   "non_claims": [
     "not peer reviewed",
-    "not a DOI artifact unless a DOI deposit is issued separately",
-    "not a Zenodo record unless a Zenodo deposit is issued separately",
+    "Zenodo archival status does not imply peer review",
     "not uniform-in-alpha convergence",
     "not a shrinking-angle theorem",
     "not a log-correlated Gaussian field theorem",

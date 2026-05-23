@@ -4,8 +4,11 @@
 
 This public research artifact records the PrimeClock Dynamics v2.0.0 complete-CRT
 finite-beta Angular Kubilius Chaos theorem surface. It is not a posted preprint
-and not peer reviewed. If this version is archived separately on Zenodo, cite
-the issued DOI for that deposited version.
+and not peer reviewed. The versioned archive is recorded on Zenodo:
+
+- Zenodo record: <https://zenodo.org/records/20357499>
+- Version DOI: <https://doi.org/10.5281/zenodo.20357499>
+- Concept DOI: <https://doi.org/10.5281/zenodo.20336785>
 
 The main manuscript draft is:
 
