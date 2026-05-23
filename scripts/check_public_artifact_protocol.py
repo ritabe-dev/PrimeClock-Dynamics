@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -30,6 +31,7 @@ FORBIDDEN_NAMES = {
     ".pytest_cache",
     "__pycache__",
 }
+_TRACKED_ARTIFACT_PATHS: set[Path] | None = None
 
 
 def fail(message: str) -> None:
@@ -41,8 +43,36 @@ def version_key(path: Path) -> tuple[int, int, int]:
     return int(major), int(minor), int(patch)
 
 
+def tracked_artifact_paths() -> set[Path] | None:
+    """Return git-tracked artifact paths, or None when git metadata is unavailable."""
+
+    global _TRACKED_ARTIFACT_PATHS
+    if _TRACKED_ARTIFACT_PATHS is not None:
+        return _TRACKED_ARTIFACT_PATHS
+
+    completed = subprocess.run(
+        ["git", "ls-files", "artifacts"],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if completed.returncode != 0:
+        return None
+
+    _TRACKED_ARTIFACT_PATHS = {
+        ROOT / line for line in completed.stdout.splitlines() if line.strip()
+    }
+    return _TRACKED_ARTIFACT_PATHS
+
+
 def check_no_forbidden_generated_files(version_dir: Path) -> None:
-    for path in version_dir.rglob("*"):
+    tracked_paths = tracked_artifact_paths()
+    paths = tracked_paths if tracked_paths is not None else set(version_dir.rglob("*"))
+    for path in paths:
+        if not path.is_relative_to(version_dir):
+            continue
         if path.name in FORBIDDEN_NAMES:
             fail(f"{version_dir.name} contains generated/cache path: {path.relative_to(ROOT)}")
 
