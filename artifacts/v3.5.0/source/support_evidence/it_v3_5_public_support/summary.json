@@ -1,0 +1,25 @@
+{
+  "all_bounded_test_bounds_passed": true,
+  "all_moment_bounds_passed": true,
+  "all_tv_bounds_passed": true,
+  "artifact_status": "public_artifact",
+  "candidate_id": "pcd_v3_5_public_artifact",
+  "conductor_tail_theorem_claimed": false,
+  "distributional_diagonal_claimed": false,
+  "doi_claimed": false,
+  "experiment_count": 5,
+  "full_diagonal_claimed": false,
+  "max_bounded_test_error": 0.000616883117,
+  "max_moment_error": 0.000822388441,
+  "max_tv_distance": 0.092597402597,
+  "min_low_conductor_power_ratio": 0.613810741688,
+  "public_artifact_support": true,
+  "public_release_claimed": true,
+  "row_count": 31,
+  "theorem_surface": [
+    "PCD-IT-TV",
+    "PCD-IT-DIST",
+    "PCD-IT-MOM-m"
+  ],
+  "zenodo_claimed": false
+}

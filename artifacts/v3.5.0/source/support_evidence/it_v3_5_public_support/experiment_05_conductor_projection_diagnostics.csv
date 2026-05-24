@@ -1,0 +1,4 @@
+experiment,N,cutoff_y,period,low_conductor_bound,complete_period_mean,dyadic_mean,total_centered_power,low_conductor_power,high_conductor_power,low_conductor_power_ratio,high_conductor_power_ratio,status
+conductor_projection_diagnostic,240,5,30,6,1.000000000000e+00,1.000000000000e+00,2.036458333330e-01,1.250000000000e-01,7.864583333300e-02,6.138107416880e-01,3.861892583120e-01,public_conductor_projection_diagnostic_only
+conductor_projection_diagnostic,840,7,210,10,1.000000000000e+00,1.000000000000e+00,2.526351686510e-01,1.687500000000e-01,8.388516865100e-02,6.679592588050e-01,3.320407411950e-01,public_conductor_projection_diagnostic_only
+conductor_projection_diagnostic,840,7,210,30,1.000000000000e+00,1.000000000000e+00,2.526351686510e-01,2.367146164020e-01,1.592055224900e-02,9.369820427860e-01,6.301795721400e-02,public_conductor_projection_diagnostic_only

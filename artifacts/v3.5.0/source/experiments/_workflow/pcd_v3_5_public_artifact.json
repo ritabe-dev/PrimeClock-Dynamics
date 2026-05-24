@@ -1,0 +1,60 @@
+{
+  "candidate_id": "pcd_v3_5_public_artifact",
+  "public_release": true,
+  "status": "public_artifact",
+  "gates": {
+    "quick": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "experiments/it/_workflow/check_v3_5_public_artifact.py"
+          ],
+          "expected_stdout": "check_v3_5_public_artifact: checks=5, failed=0"
+        },
+        {
+          "command": [
+            "{python}",
+            "scripts/check_text_hygiene.py",
+            "--path",
+            "docs/IT_V3_5_PUBLIC_CLAIM_BOUNDARY.md",
+            "--path",
+            "paper/primeclock_dynamics_v3_5_public_manuscript.md",
+            "--path",
+            "experiments/_workflow/README_V3_5_PUBLIC_ARTIFACT.md"
+          ],
+          "expected_stdout": "failed=0"
+        }
+      ]
+    },
+    "support": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "experiments/it/run_v3_5_public_support.py",
+            "--out-dir",
+            "{tmp}/it_v3_5_public_support"
+          ],
+          "expected_stdout": "it_v3_5_public_support: experiments=5",
+          "expected_file": "{tmp}/it_v3_5_public_support/summary.json"
+        }
+      ]
+    },
+    "bundle": {
+      "commands": [
+        {
+          "command": [
+            "{python}",
+            "scripts/build_v3_5_public_artifact.py",
+            "--out",
+            "{tmp}/bundle",
+            "--verify-extraction"
+          ],
+          "expected_stdout": "v3_5_public_artifact: verified_extraction=1",
+          "expected_file": "{tmp}/bundle/PrimeClock-Dynamics-v3.5.0.zip"
+        }
+      ]
+    }
+  }
+}

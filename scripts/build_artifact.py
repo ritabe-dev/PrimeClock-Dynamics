@@ -16,9 +16,10 @@ from build_v1_0_public_artifact import build_zip as build_v1_0_zip
 from build_v1_1_public_artifact import build_zip as build_v1_1_zip
 from build_v2_0_public_artifact import build_zip as build_v2_0_zip
 from build_v3_0_public_artifact import build_zip as build_v3_0_zip
+from build_v3_5_public_artifact import build_zip as build_v3_5_zip
 
 
-SUPPORTED_VERSIONS = {"0.2.0", "1.0.0", "1.1.0", "2.0.0", "3.0.0"}
+SUPPORTED_VERSIONS = {"0.2.0", "1.0.0", "1.1.0", "2.0.0", "3.0.0", "3.5.0"}
 
 
 def main() -> None:
@@ -50,6 +51,11 @@ def main() -> None:
         )
     elif args.version == "3.0.0":
         zip_path, sha_path, file_count = build_v3_0_zip(
+            args.out,
+            verify=args.verify_extraction,
+        )
+    elif args.version == "3.5.0":
+        zip_path, sha_path, file_count = build_v3_5_zip(
             args.out,
             verify=args.verify_extraction,
         )

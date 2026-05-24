@@ -1,0 +1,5 @@
+experiment,N,cutoff_rule,cutoff_y,modulus_M_y,M_y_over_N,status,M_y_log_y_power_1_over_N,M_y_log_y_power_2_over_N,M_y_log_y_power_4_over_N
+symbolic_cutoff_budget,10000,quarter_log,2,2,2.000000000000e-04,public_symbolic_cutoff_budget_support,1.386294360000e-04,9.609060300000e-05,4.616702000000e-05
+symbolic_cutoff_budget,100000,half_log,5,30,3.000000000000e-04,public_symbolic_cutoff_budget_support,4.828313740000e-04,7.770871180000e-04,2.012881298000e-03
+symbolic_cutoff_budget,1000000,half_log,6,30,3.000000000000e-05,public_symbolic_cutoff_budget_support,5.375278400000e-05,9.631206000000e-05,3.092004290000e-04
+symbolic_cutoff_budget,1000000,log_minus_2_loglog,8,210,2.100000000000e-04,public_symbolic_cutoff_budget_support,4.366827240000e-04,9.080561960000e-04,3.926505027000e-03
