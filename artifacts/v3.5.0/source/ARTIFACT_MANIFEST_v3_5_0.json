@@ -1,0 +1,40 @@
+{
+  "artifact_id": "primeclock_dynamics_v3_5_0_integer_time_transfer",
+  "artifact_status": "public_artifact",
+  "title": "PrimeClock Dynamics v3.5.0: Slow-Cutoff Integer-Time Transfer",
+  "claim_ids": [
+    "PCD-IT-TV",
+    "PCD-IT-DIST",
+    "PCD-IT-MOM-m"
+  ],
+  "main_manuscript": "paper/primeclock_dynamics_v3_5_public_manuscript.md",
+  "verification_commands": [
+    "python3 experiments/it/_workflow/check_v3_5_public_artifact.py",
+    "python3 scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v3_5_public_artifact.json quick",
+    "python3 scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v3_5_public_artifact.json support",
+    "python3 scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v3_5_public_artifact.json bundle",
+    "python3 scripts/build_v3_5_public_artifact.py --out /tmp --verify-extraction"
+  ],
+  "non_claims": [
+    "not full diagonal Mertens transfer",
+    "not a theorem for U_n(n)",
+    "not distributional diagonal transfer",
+    "not conductor-tail theorem",
+    "not beyond slow-cutoff periodic regime",
+    "not posted preprint",
+    "not peer reviewed"
+  ],
+  "excluded_from_public_artifact": [
+    "internal gate-history packets",
+    "Gate R/C/P review bundles",
+    "future v4 workstreams",
+    "app/",
+    "data/",
+    "artifacts/",
+    "docs/internal/"
+  ],
+  "support_evidence": "support_evidence/it_v3_5_public_support",
+  "release_profile": "github_public_artifact",
+  "doi_claimed": false,
+  "zenodo_claimed": false
+}

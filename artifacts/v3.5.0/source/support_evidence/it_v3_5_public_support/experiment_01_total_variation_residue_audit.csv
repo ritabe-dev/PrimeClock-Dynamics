@@ -1,0 +1,4 @@
+experiment,N,cutoff_y,modulus_M_y,quotient_a,remainder_b,M_y_over_N,total_variation_distance,tv_exact_formula_b_Q_minus_b_over_NQ,absolute_gap_to_exact_formula,tv_bound_M_y_over_N,within_tv_bound,status
+total_variation_residue_audit,240,5,30,8,0,1.250000000000e-01,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,1.250000000000e-01,True,public_total_variation_residue_transfer_support
+total_variation_residue_audit,840,7,210,4,0,2.500000000000e-01,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,2.500000000000e-01,True,public_total_variation_residue_transfer_support
+total_variation_residue_audit,6000,11,2310,2,1380,3.850000000000e-01,9.259740259700e-02,9.259740259700e-02,0.000000000000e+00,3.850000000000e-01,True,public_total_variation_residue_transfer_support

@@ -1,0 +1,10 @@
+experiment,N,cutoff_y,test_function,modulus_M_y,dyadic_average,complete_period_average,absolute_error_vs_period,tv_expectation_bound,within_tv_expectation_bound,status
+bounded_test_function_transfer,240,5,indicator_gt_one,30,3.666666666670e-01,3.666666666670e-01,0.000000000000e+00,2.500000000000e-01,True,public_bounded_test_distributional_transfer_support
+bounded_test_function_transfer,240,5,clipped_half_linear,30,5.000000000000e-01,5.000000000000e-01,0.000000000000e+00,2.500000000000e-01,True,public_bounded_test_distributional_transfer_support
+bounded_test_function_transfer,240,5,cosine_clipped,30,3.627640673000e-03,3.627640673000e-03,0.000000000000e+00,2.500000000000e-01,True,public_bounded_test_distributional_transfer_support
+bounded_test_function_transfer,840,7,indicator_gt_one,210,5.190476190480e-01,5.190476190480e-01,0.000000000000e+00,5.000000000000e-01,True,public_bounded_test_distributional_transfer_support
+bounded_test_function_transfer,840,7,clipped_half_linear,210,4.986607142860e-01,4.986607142860e-01,0.000000000000e+00,5.000000000000e-01,True,public_bounded_test_distributional_transfer_support
+bounded_test_function_transfer,840,7,cosine_clipped,210,1.355711991100e-02,1.355711991100e-02,0.000000000000e+00,5.000000000000e-01,True,public_bounded_test_distributional_transfer_support
+bounded_test_function_transfer,6000,11,indicator_gt_one,2310,4.841666666670e-01,4.835497835500e-01,6.168831170000e-04,7.700000000000e-01,True,public_bounded_test_distributional_transfer_support
+bounded_test_function_transfer,6000,11,clipped_half_linear,2310,4.972624131940e-01,4.973349567100e-01,7.254351600000e-05,7.700000000000e-01,True,public_bounded_test_distributional_transfer_support
+bounded_test_function_transfer,6000,11,cosine_clipped,2310,1.888000838200e-02,1.881093910400e-02,6.906927800000e-05,7.700000000000e-01,True,public_bounded_test_distributional_transfer_support

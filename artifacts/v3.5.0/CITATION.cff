@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this PrimeClock Dynamics v3.5.0 public research artifact, please cite it using the metadata below. This artifact is not a peer-reviewed result and is not a posted preprint."
+title: "PrimeClock Dynamics v3.5.0: Slow-Cutoff Integer-Time Transfer"
+authors:
+  - family-names: "Itabe"
+    given-names: "Rio"
+version: "3.5.0"
+date-released: "2026-05-24"
+abstract: "A reproducible research artifact recording slow-cutoff integer-time transfer for Mertens-normalized PrimeClock uncovered masses."
+license: "MIT"
+repository-code: "https://github.com/ritabe-dev/PrimeClock-Dynamics"
