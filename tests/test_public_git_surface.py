@@ -30,14 +30,13 @@ def test_public_git_surface_checker_passes_current_checkout() -> None:
     assert completed.returncode == 0, completed.stdout + completed.stderr
 
 
-def test_public_git_surface_blocks_tool_named_head_ref(tmp_path: Path) -> None:
-    blocked_ref = "feature/" + "co" + "dex" + "-surface"
-    completed = run_checker({"GITHUB_HEAD_REF": blocked_ref})
-    assert completed.returncode != 0
-    assert "check_public_git_surface: failed" in completed.stdout
+def test_public_git_surface_allows_tool_named_head_ref() -> None:
+    disclosed_ref = "feature/" + "co" + "dex" + "-disclosure"
+    completed = run_checker({"GITHUB_HEAD_REF": disclosed_ref})
+    assert completed.returncode == 0, completed.stdout + completed.stderr
 
 
-def test_public_git_surface_blocks_tool_named_pull_request_title(tmp_path: Path) -> None:
+def test_public_git_surface_allows_tool_named_pull_request_title(tmp_path: Path) -> None:
     event_path = tmp_path / "event.json"
     event_path.write_text(
         json.dumps(
@@ -51,5 +50,10 @@ def test_public_git_surface_blocks_tool_named_pull_request_title(tmp_path: Path)
         encoding="utf-8",
     )
     completed = run_checker({"GITHUB_EVENT_PATH": str(event_path)})
+    assert completed.returncode == 0, completed.stdout + completed.stderr
+
+
+def test_public_git_surface_blocks_local_path_head_ref() -> None:
+    completed = run_checker({"GITHUB_HEAD_REF": "repair//Users/name/private"})
     assert completed.returncode != 0
-    assert "pull request title" in completed.stdout
+    assert "forbidden local-path token" in completed.stdout

@@ -32,6 +32,8 @@ jobs:
         run: |
           python experiments/_workflow/check_v0_2_public_artifact.py
           python experiments/_workflow/check_v1_0_public_artifact.py
+          python experiments/it/_workflow/check_v3_5_public_artifact.py
+          python scripts/verify_candidate_workflow.py --config experiments/_workflow/pcd_v3_5_public_artifact.json quick
           python scripts/check_text_hygiene.py
 
       - name: Run tests and style checks
