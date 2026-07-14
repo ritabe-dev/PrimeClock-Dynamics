@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check public Git metadata for process-tool wording."""
+"""Check public Git metadata for accidental local-path leakage."""
 
 from __future__ import annotations
 
@@ -12,10 +12,9 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 
 FORBIDDEN_TERMS = (
-    "co" + "dex",
-    "chat" + "gpt",
-    "open" + "ai",
-    "ll" + "m",
+    "/users/",
+    "/mnt/data/",
+    "review_packages/",
 )
 
 
@@ -44,7 +43,7 @@ def _contains_forbidden(value: str) -> str | None:
 def _check_value(label: str, value: str, failures: list[str]) -> None:
     term = _contains_forbidden(value)
     if term is not None:
-        failures.append(f"{label} contains forbidden public-process token: {term}")
+        failures.append(f"{label} contains forbidden local-path token: {term}")
 
 
 def _event_values() -> list[tuple[str, str]]:
